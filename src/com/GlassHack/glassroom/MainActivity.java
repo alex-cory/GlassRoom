@@ -5,20 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.android.glass.app.Card;
-import com.google.android.glass.view.WindowUtils;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.google.android.glass.widget.CardScrollView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnItemClickListener{
 

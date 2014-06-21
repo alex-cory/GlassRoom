@@ -3,7 +3,6 @@ package com.GlassHack.glassroom;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,18 +12,19 @@ import com.google.android.glass.app.Card;
 
 public class SuggestStudent extends Activity implements OnClickListener {
 	
-	
 	DatabaseHandler db;
 	private List<Student> students;
-	private List<Student> sortedStudents;
 	private String subject; 
 	private Student currLowest;
 	private Student secondLowest;
+	Intent suggestIntent;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		db = new DatabaseHandler(this);
+		new Intent(this, QuestionActivity.class);
 		subject = getIntent().getExtras().getString("subject");
 		
 		students = db.getAllContacts();
@@ -93,7 +93,12 @@ public class SuggestStudent extends Activity implements OnClickListener {
 		card.setFootnote(secondLowest.getName());
 		vCard.setFocusable(true);
 		vCard.setOnClickListener(this);
-    	setContentView(vCard);
+//    	Card card2 = new Card(this);
+//    	card2.setText("FUCK");
+    	//view2.setFocusable(true);
+    	//view2.setOnClickListener(this);
+		setContentView(card.getView());
+    	
 	}
 	
 	@Override
