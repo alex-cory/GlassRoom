@@ -4,21 +4,21 @@ public class Student {
 	private String name;
 	private int _id;
 	private int correctEnglish;
-	private int incorrectEnglish;
+	private int English;
 	private int correctMath;
-	private int incorrectMath;
+	private int Math;
 	private int correctScience;
-	private int incorrectScience;
+	private int Science;
 	
 	public Student() {
 		name = "Fake";
 		_id = 0;
 		correctEnglish = 0;
-		incorrectEnglish = 0;
+		English = 0;
 		correctMath = 0;
-		incorrectMath = 0;
+		Math = 0;
 		correctScience = 0;
-		incorrectScience = 0;
+		Science = 0;
 	}
 	
 	public Student(String name, int id){
@@ -51,11 +51,11 @@ public class Student {
 	}
 
 	public int getEnglish() {
-		return incorrectEnglish;
+		return English;
 	}
 
 	public void setEnglish(int incorrectEnglish) {
-		this.incorrectEnglish = incorrectEnglish;
+		this.English = incorrectEnglish;
 	}
 
 	public int getCorrectMath() {
@@ -67,11 +67,11 @@ public class Student {
 	}
 
 	public int getMath() {
-		return incorrectMath;
+		return Math;
 	}
 
 	public void setMath(int incorrectMath) {
-		this.incorrectMath = incorrectMath;
+		this.Math = incorrectMath;
 	}
 
 	public int getCorrectScience() {
@@ -83,10 +83,17 @@ public class Student {
 	}
 
 	public int getScience() {
-		return incorrectScience;
+		return Science;
 	}
 
 	public void setScience(int incorrectScience) {
-		this.incorrectScience = incorrectScience;
+		this.Science = incorrectScience;
+	}
+	
+	public String toString() {
+		return this.name +"\n" + "English: "+String.valueOf(this.correctEnglish) + " " + String.valueOf(this.English) +
+				"\n Science: " + String.valueOf(this.correctScience) + " " + String.valueOf(this.Science) + "\n"
+				+ "Math: " + String.valueOf(this.correctMath) + " " + String.valueOf(this.Math);
+				
 	}
 }
