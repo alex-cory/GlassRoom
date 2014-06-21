@@ -5,12 +5,13 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.google.android.glass.app.Card;
 
-public class SuggestStudent extends Activity implements OnClickListener {
+public class SuggestStudent extends Activity {
 	
 	DatabaseHandler db;
 	private List<Student> students;
@@ -92,7 +93,6 @@ public class SuggestStudent extends Activity implements OnClickListener {
 		card.setText(currLowest.getName());
 		card.setFootnote(secondLowest.getName());
 		vCard.setFocusable(true);
-		vCard.setOnClickListener(this);
 //    	Card card2 = new Card(this);
 //    	card2.setText("FUCK");
     	//view2.setFocusable(true);
@@ -101,10 +101,25 @@ public class SuggestStudent extends Activity implements OnClickListener {
     	
 	}
 	
-	@Override
-	public void onClick(View v) {
-		Intent suggestIntent = new Intent(this, QuestionActivity.class);
-		suggestIntent.putExtra("subject", subject);
-		startActivity(suggestIntent);
-	}
+//	@Override
+//	public void onClick(View v) {
+//		Intent suggestIntent = new Intent(this, QuestionActivity.class);
+//		suggestIntent.putExtra("subject", subject);
+//		startActivity(suggestIntent);
+//	}
+	
+	
+	    @Override
+	    public boolean onKeyDown(int keycode, KeyEvent event) {
+	        if (keycode == KeyEvent.KEYCODE_DPAD_CENTER) {
+	            // user tapped touchpad, do something
+	        	Intent suggestIntent = new Intent(this, QuestionActivity.class);
+	        	suggestIntent.putExtra("subject", subject);
+	        	startActivity(suggestIntent);
+	            return true;
+	        }
+	       
+	        return super.onKeyDown(keycode, event);
+	    }
+	
 }
