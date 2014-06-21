@@ -4,10 +4,10 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 import com.google.android.glass.app.Card;
 
@@ -37,13 +37,13 @@ public class SuggestStudent extends Activity implements OnClickListener {
 		card.addImage(R.drawable.mattprof);
 		card.setText("Matthew Normyle");
 		card.setFootnote("Sanat Moningi \n Alex Cory");
-		card.setFocusable(true);
+		vCard.setFocusable(true);
 		vCard.setOnClickListener(this);
     	setContentView(vCard);
 	}
 	
 	@Override
-	public void onClick(DialogInterface dialog, int which) {
+	public void onClick(View v) {
 		Intent suggestIntent = new Intent(this, QuestionActivity.class);
 		suggestIntent.putExtra("subject", subject);
 		startActivity(suggestIntent);
