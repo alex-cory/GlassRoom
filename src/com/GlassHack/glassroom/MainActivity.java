@@ -29,6 +29,12 @@ public class MainActivity extends Activity implements OnItemClickListener{
         // HELP ME GET HERE BY SAYING. "GLASS IN SESSION" or "HOST A GLASSROOM"
         // getWindow().requestFeature(WindowUtils.FEATURE_VOICE_COMMANDS);
         
+        db = new DatabaseHandler(this);
+        
+        this.deleteDatabase(db.getDatabaseName());
+        
+        db = new DatabaseHandler(this);
+        
         createCards();
 
         mCardScrollView = new CardScrollView(this);
@@ -39,7 +45,6 @@ public class MainActivity extends Activity implements OnItemClickListener{
         mCardScrollView.setAdapter(adapter);
         mCardScrollView.activate();
         setContentView(mCardScrollView);
-        db = new DatabaseHandler(this);
         //fake data
         fakeData();
     }

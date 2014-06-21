@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.view.KeyEvent;
 import android.widget.TextView;
 
 public class QuestionActivity extends Activity {
@@ -75,5 +76,16 @@ public class QuestionActivity extends Activity {
 		}
 		db.updateContact(cn);
 	}
+	
+	@Override
+    public boolean onKeyDown(int keycode, KeyEvent event) {
+        if (keycode == KeyEvent.KEYCODE_DPAD_CENTER) {
+            Intent intent = new Intent(this,DatabaseViewer.class);
+            startActivity(intent);
+            return true;
+        }
+        super.onKeyDown(keycode, event);
+        return false;
+    }
 
 }
