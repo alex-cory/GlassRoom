@@ -11,7 +11,14 @@ public class Student {
 	private int incorrectScience;
 	
 	public Student() {
-		
+		name = "Fake";
+		id = 0;
+		correctEnglish = 0;
+		incorrectEnglish = 0;
+		correctMath = 0;
+		incorrectMath = 0;
+		correctScience = 0;
+		incorrectScience = 0;
 	}
 	
 	public Student(String name, int id){
