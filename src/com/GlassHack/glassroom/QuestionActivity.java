@@ -31,7 +31,7 @@ public class QuestionActivity extends Activity {
 
 	private void displaySpeechRecognizer() {
 	    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-	    intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "NAME CORRECT/INCORRECT.");
+	    intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say student name, and then correct or incorrect.");
 	    startActivityForResult(intent, SPEECH_REQUEST);
 	}
 

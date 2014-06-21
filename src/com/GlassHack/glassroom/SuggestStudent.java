@@ -31,7 +31,7 @@ public class SuggestStudent extends Activity {
 		students = db.getAllContacts();
 		db.close();
 		currLowest = students.get(0);
-		secondLowest = students.get(1);
+		secondLowest = students.get(2);
 		switch (subject) {
 		case "Mathematics":
 			for(Student cn : students) {
