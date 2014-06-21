@@ -11,9 +11,10 @@ import android.widget.TextView;
 public class QuestionActivity extends Activity {
 
 	TextView txtview_speechresults;
+	DatabaseHandler db;
 	String subject;
 	String name;
-	String quality;
+	int correct;
 	private static final int SPEECH_REQUEST = 0;
 	
 	@Override
@@ -21,13 +22,14 @@ public class QuestionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_question);
 		Intent intent = getIntent();
-		subject = intent.getStringExtra();
+		subject = (String) intent.getStringExtra("subject");
+		db = new DatabaseHandler(this);
 		displaySpeechRecognizer();
 	}
 
 	private void displaySpeechRecognizer() {
 	    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-	    intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say the students name and quality of answer.");
+	    intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "NAME CORRECT/INCORRECT.");
 	    startActivityForResult(intent, SPEECH_REQUEST);
 	}
 
@@ -39,15 +41,39 @@ public class QuestionActivity extends Activity {
 	                RecognizerIntent.EXTRA_RESULTS);
 	        String string = results.get(0);
 		    String[] parts = string.split(" ");
-		    name = parts[0]+parts[1];
-		    quality = parts[2];
+		    name = parts[0];
+		    String quality = parts[1];
+		    if(parts.equals("yes")) {
+		    	correct=1;
+		    }
+		    else {
+		    	correct=0;
+		    }
 		    inputData();
 	    }
 	    super.onActivityResult(requestCode, resultCode, data);
 	}
 	
 	public void inputData() {
-		
+		List<Student> students = db.getAllContacts();
+		for(Student cn : students) {
+			if(cn.getName().equals(name)) {
+				updateStudent(cn);
+			}
+		}
+	}
+	
+	public void updateStudent(Student cn) {
+		if(subject.equals("Math")) {
+			cn.setCorrectMath(cn.getCorrectMath()+correct);
+		}
+		else if(subject.equals("English")) {
+			cn.setCorrectEnglish(cn.getCorrectEnglish()+correct);
+		}
+		else if(subject.equals("Science")) {
+			cn.setCorrectScience(cn.getCorrectScience()+correct);
+		}
+		db.updateContact(cn);
 	}
 
 }

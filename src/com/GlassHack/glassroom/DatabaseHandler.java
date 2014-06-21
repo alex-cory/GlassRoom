@@ -40,8 +40,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_STUDENTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_SCIENCE + " INTEGER," + KEY_MATH + " INTEGER," + KEY_ENGLISH + " INTEGER," +
-               KEY_CORRECT_MATH + " INTEGER," +KEY_CORRECT_ENGLISH + " INTEGER," + KEY_CORRECT_SCIENCE+ " INTEGER"+")";
+                + KEY_ENGLISH + " INTEGER," + KEY_SCIENCE + " INTEGER," + KEY_MATH + " INTEGER," +
+               KEY_CORRECT_ENGLISH + " INTEGER," +KEY_CORRECT_SCIENCE + " INTEGER," + KEY_CORRECT_MATH+ " INTEGER"+")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
  
