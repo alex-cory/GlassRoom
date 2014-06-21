@@ -29,6 +29,7 @@ public class SuggestStudent extends Activity {
 		subject = getIntent().getExtras().getString("subject");
 		
 		students = db.getAllContacts();
+		db.close();
 		currLowest = students.get(0);
 		secondLowest = students.get(1);
 		switch (subject) {
@@ -100,20 +101,11 @@ public class SuggestStudent extends Activity {
 		setContentView(card.getView());
     	
 	}
-	
-//	@Override
-//	public void onClick(View v) {
-//		Intent suggestIntent = new Intent(this, QuestionActivity.class);
-//		suggestIntent.putExtra("subject", subject);
-//		startActivity(suggestIntent);
-//	}
-	
-	
 	    @Override
 	    public boolean onKeyDown(int keycode, KeyEvent event) {
 	        if (keycode == KeyEvent.KEYCODE_DPAD_CENTER) {
 	            // user tapped touchpad, do something
-	        	Intent suggestIntent = new Intent(this, QuestionActivity.class);
+	        	Intent suggestIntent = new Intent(this, com.GlassHack.glassroom.QuestionActivity.class);
 	        	suggestIntent.putExtra("subject", subject);
 	        	startActivity(suggestIntent);
 	            return true;

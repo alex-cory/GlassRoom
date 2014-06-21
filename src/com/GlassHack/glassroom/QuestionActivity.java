@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.widget.TextView;
 
 public class QuestionActivity extends Activity {
@@ -68,19 +67,19 @@ public class QuestionActivity extends Activity {
 	}
 	
 	public void updateStudent(Student cn) {
-		if(subject.equals("Math")) {
+		if(subject.equals("Mathematics")) {
 			cn.setCorrectMath(cn.getCorrectMath()+correct);
 			int tmp = cn.getMath();
 			tmp++;
 			cn.setMath(tmp);
 		}
-		else if(subject.equals("English")) {
+		else if(subject.equals("Literature")) {
 			cn.setCorrectEnglish(cn.getCorrectEnglish()+correct);
 			int tmp = cn.getEnglish();
 			tmp++;
 			cn.setEnglish(tmp);
 		}
-		else if(subject.equals("Science")) {
+		else if(subject.equals("Biology")) {
 			cn.setCorrectScience(cn.getCorrectScience()+correct);
 			int tmp = cn.getScience();
 			tmp++;
