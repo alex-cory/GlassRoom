@@ -10,6 +10,10 @@ public class Student {
 	private int correctScience;
 	private int incorrectScience;
 	
+	public Student() {
+		
+	}
+	
 	public Student(String name, int id){
 		this.setName(name);
 		this.setId(id);
