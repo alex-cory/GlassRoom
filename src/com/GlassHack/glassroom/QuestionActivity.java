@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.TextView;
 
 public class QuestionActivity extends Activity {
@@ -23,6 +25,7 @@ public class QuestionActivity extends Activity {
 		setContentView(R.layout.activity_question);
 		Intent intent = getIntent();
 		subject = (String) intent.getStringExtra("subject");
+		Log.d("TAG","subject is :"+subject);
 		db = new DatabaseHandler(this);
 		displaySpeechRecognizer();
 	}
@@ -43,7 +46,7 @@ public class QuestionActivity extends Activity {
 		    String[] parts = string.split(" ");
 		    name = parts[0];
 		    String quality = parts[1];
-		    if(parts.equals("yes")) {
+		    if(quality.equals("correct")) {
 		    	correct=1;
 		    }
 		    else {
@@ -52,6 +55,7 @@ public class QuestionActivity extends Activity {
 		    inputData();
 	    }
 	    super.onActivityResult(requestCode, resultCode, data);
+	    this.finish();
 	}
 	
 	public void inputData() {
@@ -66,12 +70,21 @@ public class QuestionActivity extends Activity {
 	public void updateStudent(Student cn) {
 		if(subject.equals("Math")) {
 			cn.setCorrectMath(cn.getCorrectMath()+correct);
+			int tmp = cn.getMath();
+			tmp++;
+			cn.setMath(tmp);
 		}
 		else if(subject.equals("English")) {
 			cn.setCorrectEnglish(cn.getCorrectEnglish()+correct);
+			int tmp = cn.getEnglish();
+			tmp++;
+			cn.setEnglish(tmp);
 		}
 		else if(subject.equals("Science")) {
 			cn.setCorrectScience(cn.getCorrectScience()+correct);
+			int tmp = cn.getScience();
+			tmp++;
+			cn.setEnglish(tmp);
 		}
 		db.updateContact(cn);
 	}
