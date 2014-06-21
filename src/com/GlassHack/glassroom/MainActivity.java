@@ -24,7 +24,7 @@ public class MainActivity extends Activity implements OnItemClickListener{
 
     private List<Card> mCards;
     private CardScrollView mCardScrollView;
-  
+    DatabaseHandler db;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,9 @@ public class MainActivity extends Activity implements OnItemClickListener{
         mCardScrollView.setAdapter(adapter);
         mCardScrollView.activate();
         setContentView(mCardScrollView);
+        db = new DatabaseHandler(this);
+        //fake data
+        fakeData();
     }
 
     private void createCards() {
@@ -105,5 +108,23 @@ public class MainActivity extends Activity implements OnItemClickListener{
                 ViewGroup parent) {
             return  mCards.get(position).getView(convertView, parent);
         }
+    }
+    
+    public void fakeData() {
+    	Student student1 = new Student();
+    	student1.setName("Matthew");
+    	Student student2 = new Student();
+    	student2.setName("Saleh");
+    	Student student3 = new Student();
+    	student3.setName("Sanat");
+    	Student student4 = new Student();
+    	student4.setName("Alex");
+    	Student student5 = new Student();
+    	student5.setName("David");
+    	db.addContact(student1);
+    	db.addContact(student2);
+    	db.addContact(student3);
+    	db.addContact(student4);
+    	db.addContact(student5);
     }
 }
