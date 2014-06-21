@@ -30,6 +30,10 @@
             android:name="com.GlassHack.glassroom.SuggestStudent"
             android:label="@string/title_activity_suggest_student" >
         </activity>
+        <activity
+            android:name="com.GlassHack.glassroom.QuestionActivity"
+            android:label="Question" >
+        </activity>
     </application>
 
 </manifest>
