@@ -13,7 +13,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
  
     // Database Name
     private static final String DATABASE_NAME = "studentsDatabase";
@@ -93,12 +93,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         
         student.setId(Integer.parseInt(cursor.getString(0)));
         student.setName(cursor.getString(1));
-        student.setCorrectEnglish(Integer.getInteger(cursor.getString(2)));
-        student.setCorrectScience(Integer.getInteger(cursor.getString(3)));
-        student.setCorrectMath(Integer.getInteger(cursor.getString(4)));
-        student.setEnglish(Integer.getInteger(cursor.getString(5)));
-        student.setScience(Integer.getInteger(cursor.getString(6)));
-        student.setMath(Integer.getInteger(cursor.getString(7)));
+        student.setCorrectEnglish(Integer.parseInt(cursor.getString(2)));
+        student.setCorrectScience(Integer.parseInt(cursor.getString(3)));
+        student.setCorrectMath(Integer.parseInt(cursor.getString(4)));
+        student.setEnglish(Integer.parseInt(cursor.getString(5)));
+        student.setScience(Integer.parseInt(cursor.getString(6)));
+        student.setMath(Integer.parseInt(cursor.getString(7)));
         
         // return contact
         return student;
@@ -119,12 +119,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             	Student student = new Student();
             	student.setId(Integer.parseInt(cursor.getString(0)));
                 student.setName(cursor.getString(1));
-                student.setCorrectEnglish(Integer.getInteger(cursor.getString(2)));
-                student.setCorrectScience(Integer.getInteger(cursor.getString(3)));
-                student.setCorrectMath(Integer.getInteger(cursor.getString(4)));
-                student.setEnglish(Integer.getInteger(cursor.getString(5)));
-                student.setScience(Integer.getInteger(cursor.getString(6)));
-                student.setMath(Integer.getInteger(cursor.getString(7)));
+                student.setCorrectEnglish(Integer.parseInt(cursor.getString(2)));
+                student.setCorrectScience(Integer.parseInt(cursor.getString(3)));
+                student.setCorrectMath(Integer.parseInt(cursor.getString(4)));
+                student.setEnglish(Integer.parseInt(cursor.getString(5)));
+                student.setScience(Integer.parseInt(cursor.getString(6)));
+                student.setMath(Integer.parseInt(cursor.getString(7)));
+                contactList.add(student);
             } while (cursor.moveToNext());
         }
  

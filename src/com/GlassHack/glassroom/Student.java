@@ -2,7 +2,7 @@ package com.GlassHack.glassroom;
 
 public class Student {
 	private String name;
-	private int id;
+	private int _id;
 	private int correctEnglish;
 	private int incorrectEnglish;
 	private int correctMath;
@@ -12,7 +12,7 @@ public class Student {
 	
 	public Student() {
 		name = "Fake";
-		id = 0;
+		_id = 0;
 		correctEnglish = 0;
 		incorrectEnglish = 0;
 		correctMath = 0;
@@ -35,11 +35,11 @@ public class Student {
 	}
 
 	public int getId() {
-		return id;
+		return _id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this._id = id;
 	}
 
 	public int getCorrectEnglish() {
