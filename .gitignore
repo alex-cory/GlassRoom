@@ -1,3 +1,5 @@
+gen/
+bin/
 bin/classes/com/GlassHack/glassroom/MainActivity$ExampleCardScrollAdapter.class
 bin/classes/com/GlassHack/glassroom/MainActivity.class
 bin/classes/com/GlassHack/glassroom/R$layout.class
